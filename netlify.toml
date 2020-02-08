@@ -1,0 +1,6 @@
+[Settings]
+  ID = "stolen-website"
+
+[build]
+  publish = "public/"
+  command = "gatsby build"
