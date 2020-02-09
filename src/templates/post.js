@@ -35,8 +35,15 @@ class Post extends Component {
                         alt='Instagram Meme'
                     />
                 </picture>
-                <h1>{post.likes}</h1>
-                <div>{post.caption}</div>
+                {/* <h1>{post.likes}</h1> */}
+                <div
+                    style={{
+                        whiteSpace: 'pre-wrap',
+                        paddingTop: '30px',
+                        paddingBottom: '30px',
+                        fontWeight: '600'
+                    }}
+                >{post.caption}</div>
             </div>
         </Layout>
     )
