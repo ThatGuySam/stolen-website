@@ -7,7 +7,7 @@
 
 import React from "react"
 import PropTypes from "prop-types"
-import { useStaticQuery, graphql } from "gatsby"
+import { useStaticQuery, graphql, Link } from "gatsby"
 
 import Header from "./header"
 import "./layout.css"
@@ -35,6 +35,13 @@ const Layout = ({ children }) => {
         }}
       >
         <main>{children}</main>
+        <div>
+          <Link to='/'>
+            <div style={{padding: `1.45rem 0 1.45rem`,}}>
+              <strong>Home</strong>
+            </div>
+          </Link>
+        </div>
         <footer
           style={{
             paddingTop: '45px',
