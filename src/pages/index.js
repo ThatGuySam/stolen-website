@@ -11,16 +11,48 @@ const IndexPage = ({ data }) => {
   return (
     <Layout>
       <SEO title="Home" />
-      <div>
-        <h1>Posts</h1>
-        {data.allInstaNode.edges.map(({ node }) => (
-          <div key={node.id}>
-            <Link to={node.id}>
-              <h2>{node.timestamp}</h2>
-            </Link>
-            <p>{node.caption}</p>
-          </div>
-        ))}
+      <h1>Posts</h1>
+
+      <div
+        style={{
+          display: 'flex',
+          flexWrap: 'wrap'
+        }}
+      >
+        {data.allInstaNode.edges.map(({ node }) => {
+          const image = node.localFile.childImageSharp
+
+          return (
+            <div
+              key={node.id}
+              style={{
+                width: '100%',
+                maxWidth: '33%',
+                // flex: 1
+              }}
+            >
+              <Link to={node.id}>
+                <picture>
+                      <source
+                          type="image/jpg"
+                          sizes={image.sizes.sizes}
+                          srcSet={image.sizes.srcSet}
+                      />
+                      <source
+                          type="image/webp"
+                          sizes={image.sizes.sizes}
+                          srcSet={image.sizes.srcSetWebp}
+                      />
+                      <img
+                          src={image.sizes.src}
+                          style={{width: '100%'}}
+                          alt='Instagram Meme'
+                      />
+                  </picture>
+              </Link>
+            </div>
+          )
+        })}
       </div>
     </Layout>
   )
@@ -38,9 +70,12 @@ export const pageQuery = graphql`
           caption
           localFile {
             childImageSharp {
-              fixed {
-                src
+              sizes {
                 srcSet
+                src
+                srcSetWebp
+                srcWebp
+                sizes
               }
             }
           }
