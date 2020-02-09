@@ -35,14 +35,13 @@ const Layout = ({ children }) => {
         }}
       >
         <main>{children}</main>
-          {` `}
-          <a href="https://www.gatsbyjs.org">Gatsby</a>
         <footer
           style={{
             paddingTop: '45px',
             paddingBottom: '45px',
           }}
         >
+          © {new Date().getFullYear()}, Built with Memes
         </footer>
       </div>
     </>
