@@ -209,6 +209,7 @@ html {
 body {
   color: hsla(0, 0%, 100%, 0.8);
   background-color: #fe5600;
+  font-size: 20px;
   font-family: inherit;
   font-weight: normal;
   word-wrap: break-word;
