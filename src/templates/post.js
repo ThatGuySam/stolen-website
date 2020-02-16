@@ -4,6 +4,7 @@ import PropTypes from 'prop-types'
 
 import Layout from "../components/layout"
 import SEO from "../components/seo"
+import Comments from "../components/comments"
 
 class Post extends Component {
   render() {
@@ -44,6 +45,9 @@ class Post extends Component {
                         fontWeight: '600'
                     }}
                 >{post.caption}</div>
+                <div className='post-comments'>
+                    <Comments />
+                </div>
             </div>
         </Layout>
     )
