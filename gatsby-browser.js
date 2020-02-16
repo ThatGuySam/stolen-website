@@ -6,3 +6,9 @@
 
 import 'lazysizes'
 import 'lazysizes/plugins/attrchange/ls.attrchange'
+import getFacebookSdk from './src/helpers/facebook-sdk'
+
+export const onRouteUpdate =  async () => {
+    const FB = await getFacebookSdk()
+    FB.AppEvents.logPageView()
+}
